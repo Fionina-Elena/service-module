@@ -21,10 +21,10 @@
     <tbody>
         @foreach($applications as $application)
         <tr>
-            <td>{{ $application->name }}</td>
-            <td>{{ $application->email }}</td>
-            <td>{{ $application->message }}</td>
-            <td>{{ $application->created_at->format('d.m.Y H:i') }}</td>
+            <td data-label="Имя">{{ $application->name }}</td>
+            <td data-label="Email">{{ $application->email }}</td>
+            <td data-label="Сообщение">{{ $application->message }}</td>
+            <td data-label="Дата">{{ $application->created_at->format('d.m.Y H:i') }}</td>
         </tr>
         @endforeach
     </tbody>
@@ -61,13 +61,39 @@
     }
 
     @media (max-width: 768px) {
-        table {
-            font-size: 14px;
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
         }
 
-        th,
+        thead {
+            display: none;
+        }
+
+        tr {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+        }
+
         td {
-            padding: 8px 10px;
+            padding: 6px 0;
+            border: none;
+            text-align: right;
+        }
+
+        td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            color: #2c3e50;
         }
     }
 </style>

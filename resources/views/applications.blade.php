@@ -7,6 +7,7 @@
 
 @if($applications->isEmpty())
 <p style="text-align: center; color: #666; margin-top: 40px;">Пока нет ни одной заявки</p>
+
 @else
 <table>
     <thead>
@@ -29,6 +30,7 @@
     </tbody>
 </table>
 @endif
+
 @endsection
 
 @push('styles')

@@ -14,12 +14,4 @@ class Application extends Model
         'email',
         'message',
     ];
-
-    protected $guarded = [
-        'created_at',
-    ];
-
-    protected $casts = [
-        'created_at' => 'datetime:Y-m-d H:i:s',
-    ];
 }
